@@ -1,0 +1,21 @@
+DAY 4 - Cron Jobs
+
+crontab -e           - edit cron jobs
+crontab -l           - list cron jobs
+crontab -r           - remove all cron jobs
+
+# cron format:
+# * * * * * command
+# │ │ │ │ │
+# │ │ │ │ └── day of week (0-7)
+# │ │ │ └──── month (1-12)
+# │ │ └────── day of month (1-31)
+# │ └──────── hour (0-23)
+# └────────── minute (0-59)
+
+* * * * *     - every minute
+0 9 * * *     - every day 9am
+0 9 * * 1     - every Monday 9am
+*/5 * * * *   - every 5 minutes
+tail -f file  - watch file live
+Day 4 - Tue Apr 28 11:24:43 PM +0545 2026 - Cron jobs

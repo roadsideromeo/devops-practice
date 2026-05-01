@@ -1,0 +1,21 @@
+DAY 5 - Docker
+
+docker --version          - check docker version
+docker run hello-world    - run first container
+docker run -it ubuntu bash- interactive container
+docker ps                 - running containers
+docker ps -a              - all containers
+docker images             - list images
+docker system df          - check disk usage
+docker container prune    - clean stopped containers
+
+# Build your own image:
+docker build -t name .    - build from Dockerfile
+docker run image-name     - run your image
+
+# Dockerfile commands:
+FROM      - base image
+COPY      - copy files into image
+RUN       - run command while building
+CMD       - command to run when container starts
+Day 5 - Thu Apr 30 12:04:11 AM +0545 2026 - Docker basics

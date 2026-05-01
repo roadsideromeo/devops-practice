@@ -1,0 +1,9 @@
+DAY 7 - Git & GitHub
+
+git init              - initialize git in folder
+git add .             - stage all files
+git commit -m "msg"   - save snapshot
+git push              - send to GitHub
+git status            - check what changed
+git log               - see commit history
+Day 7 - Fri May  1 11:49:12 PM +0545 2026 - Git & GitHub

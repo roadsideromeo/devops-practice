@@ -1,0 +1,4 @@
+Error: database connection failed
+Error: disk space low
+Error: service crashed
+Warning: high memory usage

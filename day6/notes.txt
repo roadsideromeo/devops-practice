@@ -1,0 +1,19 @@
+DAY 6 - Docker Compose
+
+docker compose up -d      - start all containers
+docker compose down       - stop and remove containers
+docker compose start      - start stopped containers
+docker compose stop       - stop containers
+docker compose ps         - see running containers
+docker compose logs       - see logs
+docker compose restart    - restart all containers
+
+# docker-compose.yml structure:
+services:
+  name:
+    image: imagename
+    ports:
+      - "host:container"
+    volumes:
+      - ./local:/container/path
+Day 6 - Fri May  1 12:23:38 AM +0545 2026 - Docker Compose

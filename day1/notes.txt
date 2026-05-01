@@ -1,0 +1,10 @@
+Day 1 - Sat Apr 25 11:03:50 PM +0545 2026
+
+day1 -Bash script, Chmod, free , df 
+
+
+ps aux   - show all running processes
+top      - live process monitor
+htop     - better visual process monitor
+free -h  - check RAM usage
+df -h    - check disk space

@@ -1,0 +1,18 @@
+DAY 2 - grep, piping, redirection
+
+grep "text" file     - search in file
+grep -i              - case insensitive
+grep -c              - count matches
+grep -n              - show line numbers
+|                    - pipe output to next command
+>                    - overwrite to file
+>>                   - append to file
+wc -l                - count lines
+Day 2 - Sun Apr 26 10:22:33 PM +0545 2026 - grep, piping, redirection
+Day 2 - Mon Apr 27 08:52:15 PM +0545 2026 - Environment Variables
+printenv           - show all environment variables
+$HOME $USER $PATH  - built in system variables
+MY_VAR="value"     - create a variable
+export MY_VAR      - make it available everywhere
+~/.bashrc          - permanent variables saved here
+source ~/.bashrc   - apply changes immediately

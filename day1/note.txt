@@ -1,0 +1,16 @@
+Day 1 - Sat Apr 25 11:06:55 PM +0545 2026
+pwd -where i am 
+ls - what is on it 
+cd -change the directory 
+cd .. - come back to the previous directory 
+mrdir - make a folder 
+touch- make a new file 
+nano - make and write some thing 
+cp - copy or make duplicate 
+cp- a copy and make it archive 
+cp -r copy all hiden file all 
+mv - move and rename 
+mr - delate the file 
+rm - rf foldername delate full name
+ 
+ 

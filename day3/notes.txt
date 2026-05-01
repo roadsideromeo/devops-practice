@@ -1,0 +1,19 @@
+DAY 3 - find command
+
+find . -name "*.txt"        - find by extension
+find . -type f              - find files only
+find . -type d              - find folders only
+find . -name "*.tmp" -delete - find and delete
+find . -type f | xargs grep "text" - find files containing text
+Day 3 - Mon Apr 27 11:01:38 PM +0545 2026 - find command
+
+
+DAY 3 - SSH
+
+ssh user@IP              - connect to remote server
+ssh-keygen -t rsa -b4096 - generate SSH key pair
+~/.ssh/id_rsa            - private key (never share!)
+~/.ssh/id_rsa.pub        - public key (share with servers)
+ssh-copy-id user@IP      - copy key to server (passwordless)
+exit                     - disconnect from server
+Day 3 - Mon Apr 27 11:38:11 PM +0545 2026 - SSH & keys
