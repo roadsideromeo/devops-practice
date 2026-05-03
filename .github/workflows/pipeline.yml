@@ -3,7 +3,9 @@ name: My First Pipeline
 on:
   push:
     branches:
+      - main
       - day8-cicd
+      - day9-topic
 
 jobs:
   build:
