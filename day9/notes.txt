@@ -1,1 +1,29 @@
-check
+DAY 9 - Kubernetes
+
+minikube start                        - start cluster
+minikube stop                         - stop cluster
+
+kubectl get nodes                     - see cluster nodes
+kubectl get pods                      - see all pods
+kubectl get deployments               - see deployments
+
+kubectl run name --image=nginx        - run single pod
+kubectl create deployment name        - create deployment
+        --image=nginx        
+kubectl scale deployment name         - scale pods
+        --replicas=5
+kubectl describe pod podname          - pod details
+kubectl delete pod podname            - delete pod
+kubectl port-forward pod/name 8090:80 - access pod
+
+# Key concepts:
+Pod        = smallest unit (one or more containers)
+Deployment = manages pods (scaling, self-healing)
+Service    = exposes pods to network
+Node       = physical/virtual machine
+Cluster    = group of nodes
+
+# What we learned:
+- Self healing = deleted pod → new one created automatically
+- Scaling = 1 pod → 5 pods with one command
+Day 9 - Sun May  3 11:23:08 PM +0545 2026 - Kubernetes
