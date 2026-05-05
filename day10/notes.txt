@@ -1,0 +1,18 @@
+DAY 10 - Terraform
+
+terraform init     - download providers/plugins
+terraform plan     - preview changes before applying
+terraform apply    - create infrastructure
+terraform destroy  - destroy everything
+
+# main.tf structure:
+terraform {}       - configure providers
+provider {}        - set up provider (docker, aws, etc)
+resource {}        - define what to create
+
+# Key concept:
+Infrastructure as Code = write code to create servers
++ = will create
+- = will destroy
+~ = will modify
+Day 10 - Tue May  5 11:02:59 PM +0545 2026 - Terraform
