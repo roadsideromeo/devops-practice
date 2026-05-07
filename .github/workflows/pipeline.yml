@@ -32,8 +32,7 @@ jobs:
       - name: System info
         run: uname -a
 
-
-- name: Build Docker image
+      - name: Build Docker image
         run: docker build -t suraj-devops-app ./day12
 
       - name: Verify image built
