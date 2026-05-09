@@ -1,0 +1,33 @@
+DAY 13 - Linux Security
+
+# User Management:
+cat /etc/passwd          - see all users
+cat /etc/passwd | grep "/bin/bash" - real users only
+sudo adduser username    - create new user
+su - username            - switch user
+exit                     - go back to previous user
+groups username          - see user's groups
+sudo usermod -aG docker username - add user to group
+
+# File Permissions:
+chmod 600 file   - owner read/write only (secrets!)
+chmod 700 file   - owner full access only
+chmod 755 file   - owner full, others read/execute
+chmod 644 file   - owner read/write, others read
+chown user:group file - change ownership
+
+# Permission numbers:
+r=4, w=2, x=1
+7=rwx, 6=rw-, 5=r-x, 4=r--, 0=---
+
+# SSH Hardening:
+/etc/ssh/sshd_config     - SSH config file
+PermitRootLogin no       - block root SSH
+PasswordAuthentication no- keys only!
+Port 2222                - change default port
+
+# After SSH changes:
+sudo systemctl daemon-reload
+sudo systemctl restart ssh.socket
+sudo systemctl start ssh
+Day 13 - Sat May  9 11:06:24 PM +0545 2026 - Linux Security
