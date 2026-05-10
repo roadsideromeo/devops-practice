@@ -1,0 +1,36 @@
+DAY 15 - Kubernetes Security & RBAC
+
+RBAC = Role Based Access Control
+
+# 3 main components:
+Role           → what actions are allowed
+ServiceAccount → the user/identity
+RoleBinding    → connects user to role
+
+# Commands:
+kubectl create namespace name          - create namespace
+kubectl get namespaces                 - list namespaces
+kubectl get role -n namespace          - list roles
+kubectl get serviceaccount -n namespace- list users
+kubectl get rolebinding -n namespace   - list bindings
+kubectl apply -f file.yml              - apply config
+
+# Test permissions:
+kubectl auth can-i get pods \
+  --namespace=development \
+  --as=system:serviceaccount:development:username
+
+# Verbs (actions):
+get    → view one resource
+list   → view all resources
+watch  → monitor changes
+create → create new resource
+delete → delete resource
+update → modify resource
+
+# Best practices:
+- Never give everyone admin access
+- Use namespaces to separate environments
+- Give minimum permissions needed
+- Always test permissions after setting up
+Day 15 - Sun May 10 11:46:43 PM +0545 2026 - Kubernetes RBAC
