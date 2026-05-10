@@ -1,0 +1,32 @@
+DAY 14 - Docker Security
+
+# Non-root containers:
+USER devops              - run as non-root user
+RUN useradd -m devops    - create user in Dockerfile
+
+# Docker Secrets:
+docker swarm init                        - enable swarm
+echo "pass" | docker secret create name - - create secret
+docker secret ls                         - list secrets
+
+# Image Scanning with Trivy:
+trivy image imagename    - scan for vulnerabilities
+
+# Vulnerability levels:
+CRITICAL → fix immediately!
+HIGH     → fix soon
+MEDIUM   → fix when possible
+LOW      → minor issues
+UNKNOWN  → not classified
+
+# Best practices:
+- Always use alpine images (fewer vulnerabilities)
+- Never run as root in containers
+- Never store passwords in Dockerfile
+- Always scan images before deploying
+- Use Docker secrets for passwords
+
+# Image size comparison:
+nginx:latest  → 180MB, 256 vulnerabilities
+nginx:alpine  → 40MB,  3 vulnerabilities
+Day 14 - Sun May 10 11:28:36 PM +0545 2026 - Docker Security

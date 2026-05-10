@@ -1,0 +1,15 @@
+FROM nginx:alpine
+
+# Create non-root user
+RUN adduser -D -s /bin/sh devops
+
+# Copy app
+COPY index.html /usr/share/nginx/html/index.html
+
+# Change ownership
+RUN chown -R devops:devops /usr/share/nginx/html
+
+# Switch to non-root user
+USER devops
+
+EXPOSE 80
