@@ -1,0 +1,30 @@
+DAY 16 - Network Security & UFW Firewall
+
+# UFW commands:
+sudo ufw status verbose     - check firewall status
+sudo ufw enable             - turn on firewall
+sudo ufw disable            - turn off firewall
+sudo ufw status numbered    - show rules with numbers
+sudo ufw show added         - show added rules
+
+# Allow rules:
+sudo ufw allow 80/tcp              - allow port 80
+sudo ufw allow 2222/tcp            - allow SSH port
+sudo ufw allow from 192.168.1.0/24 - allow local network
+sudo ufw allow from IP to any port 22 - allow specific IP
+
+# Deny rules:
+sudo ufw deny from IP       - block specific IP
+sudo ufw deny 8080/tcp      - block specific port
+
+# Delete rules:
+sudo ufw delete 1           - delete rule number 1
+sudo ufw delete allow 80    - delete by rule name
+
+# Best practices:
+- Always allow SSH before enabling firewall!
+- Default deny incoming = most secure
+- Only open ports you actually need
+- Restrict SSH to local network only
+- Block suspicious IPs immediately
+Day 16 - Mon May 11 11:06:29 PM +0545 2026 - UFW Firewall
