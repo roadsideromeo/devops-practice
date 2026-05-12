@@ -1,0 +1,28 @@
+DAY 17 - SSL/TLS Certificates
+
+# Generate self-signed certificate:
+openssl req -x509 -newkey rsa:4096 \
+  -keyout key.pem -out cert.pem \
+  -days 365 -nodes
+
+# Certificate files:
+cert.pem → public certificate (share with world)
+key.pem  → private key (never share! chmod 600)
+
+# Inspect certificate:
+openssl x509 -in cert.pem -text -noout
+
+# nginx SSL config:
+listen 443 ssl           - HTTPS port
+ssl_certificate          - path to cert.pem
+ssl_certificate_key      - path to key.pem
+return 301 https://      - redirect HTTP to HTTPS
+
+# Test SSL:
+curl -k https://localhost:8443  - test HTTPS
+curl -I http://localhost:8081   - test redirect
+
+# Real world:
+Self-signed → for testing/internal use
+Let's Encrypt → free SSL for real websites
+Day 17 - Tue May 12 10:12:44 PM +0545 2026 - SSL/TLS Certificates
