@@ -1,0 +1,39 @@
+cat > ~/devops-practice/day18/notes.txt << 'EOF'
+DAY 18 - AWS / LocalStack
+
+# LocalStack - Free AWS simulation (use version 2.3.2, NOT latest - requires license)
+# Exit code 55 = license error, always use: localstack/localstack:2.3.2
+
+# Start LocalStack:
+docker start localstack
+
+# Check it's healthy:
+docker ps | grep localstack
+docker logs localstack --tail 20
+
+# AWS CLI checksum fix (add to ~/.bashrc):
+export AWS_REQUEST_CHECKSUM_CALCULATION=when_required
+export AWS_RESPONSE_CHECKSUM_VALIDATION=when_required
+
+# S3 Commands:
+aws s3 ls --endpoint-url http://localhost:4566                          - list buckets
+aws s3 mb s3://suraj-bucket --endpoint-url http://localhost:4566        - create bucket
+aws s3 cp index.html s3://suraj-bucket/index.html --endpoint-url http://localhost:4566  - upload file
+aws s3 ls s3://suraj-bucket --endpoint-url http://localhost:4566        - list bucket contents
+
+# Enable static website hosting:
+aws s3 website s3://suraj-bucket --index-document index.html --endpoint-url http://localhost:4566
+
+# Verify website config:
+aws s3api get-bucket-website --bucket suraj-bucket --endpoint-url http://localhost:4566
+
+# Access hosted website:
+curl http://localhost:4566/suraj-bucket/index.html
+
+# Real world equivalent:
+LocalStack S3  → AWS S3 (same commands, just remove --endpoint-url)
+Static hosting → Host websites, React apps, portfolios on S3
+S3 buckets     → don't persist when LocalStack stops (free version)
+
+Day 18 - Fri May 16 2026 - AWS S3 Static Website with LocalStack
+EOF
