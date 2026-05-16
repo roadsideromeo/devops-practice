@@ -1,0 +1,35 @@
+DAY 20 - Ansible (Configuration Management)
+
+# Install Ansible:
+sudo apt install ansible -y
+
+# Key concepts:
+inventory.ini  → list of servers to manage
+playbook.yml   → list of tasks to run
+hosts: local   → which servers to target
+become: yes    → use sudo
+tasks          → list of things to do
+
+# Test connection:
+ansible all -i inventory.ini -m ping
+# pong = success!
+
+# Run playbook:
+ansible-playbook -i inventory.ini playbook.yml --ask-become-pass
+
+# Ansible modules used:
+apt      → install/remove packages
+service  → start/stop/enable services
+file     → create directories
+copy     → create files with content
+
+# Idempotency = run 10x, same result
+# changed=0 means everything already correct
+# changed=4 means it actually did 4 things
+
+# Real world:
+Ansible  → configure servers (install software, manage files)
+Terraform → create servers (EC2, VPC, S3)
+They work together — Terraform creates, Ansible configures!
+
+Day 20 - Fri May 16 2026 - Ansible Configuration Management

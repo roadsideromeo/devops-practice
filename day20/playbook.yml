@@ -1,0 +1,31 @@
+---
+- name: Suraj's DevOps Setup Playbook
+  hosts: local
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Create devops directory
+      file:
+        path: /opt/devops
+        state: directory
+        mode: '0755'
+
+    - name: Create a test file
+      copy:
+        content: "Ansible was here! - Suraj's DevOps setup"
+        dest: /opt/devops/ansible-test.txt
