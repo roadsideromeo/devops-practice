@@ -1,0 +1,42 @@
+cat > ~/devops-practice/day19/notes.txt << 'EOF'
+DAY 19 - AWS IAM & EC2 with LocalStack
+
+# IAM - Identity and Access Management
+# Best practice: never assign policies to users directly, use groups!
+
+# Create IAM user:
+aws iam create-user --user-name devops-user --endpoint-url http://localhost:4566
+
+# Create IAM group:
+aws iam create-group --group-name devops-group --endpoint-url http://localhost:4566
+
+# Add user to group:
+aws iam add-user-to-group --user-name devops-user --group-name devops-group --endpoint-url http://localhost:4566
+
+# Attach policy to group:
+aws iam attach-group-policy --group-name devops-group --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --endpoint-url http://localhost:4566
+
+# Verify group and members:
+aws iam get-group --group-name devops-group --endpoint-url http://localhost:4566
+
+# EC2 - Elastic Compute Cloud (virtual servers)
+# Launch EC2 instance:
+aws ec2 run-instances --image-id ami-ff0fea8310f3 --instance-type t2.micro --count 1 --endpoint-url http://localhost:4566
+
+# List running instances (clean table view):
+aws ec2 describe-instances --endpoint-url http://localhost:4566 \
+--query 'Reservations[*].Instances[*].[InstanceId,State.Name,InstanceType,PublicIpAddress]' \
+--output table
+
+# Real world concepts:
+IAM User    → person or app that needs AWS access
+IAM Group   → team (devops, developers, finance)
+IAM Policy  → list of permissions (what they can do)
+EC2         → virtual server in the cloud
+t2.micro    → smallest/cheapest instance type (free tier eligible)
+AMI         → Amazon Machine Image (like a Docker image for EC2)
+
+# No output = success for: add-user-to-group, attach-group-policy
+
+Day 19 - Fri May 16 2026 - AWS IAM & EC2 with LocalStack
+EOF
