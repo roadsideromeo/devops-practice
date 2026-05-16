@@ -1,0 +1,33 @@
+DAY 21 - Advanced Ansible
+
+# Variables in playbooks:
+vars:
+  dev_user: suraj
+  devops_dir: /opt/devops
+# Use variables with: {{ variable_name }}
+
+# Ansible modules used today:
+apt      → install multiple packages at once
+service  → start/stop/enable services
+ufw      → manage firewall rules
+file     → create directories
+copy     → create files/scripts
+cron     → schedule cron jobs
+
+# Run playbook:
+ansible-playbook -i inventory.ini playbook.yml --ask-become-pass
+
+# Ansible labels its cron jobs:
+#Ansible: DevOps Health Check  ← Ansible signature
+
+# Real world power:
+One playbook = entire server configured automatically
+Run on 100 servers = all configured identically
+Idempotency = safe to run anytime
+
+# Ansible vs Terraform:
+Terraform  → CREATE infrastructure (EC2, S3, VPC)
+Ansible    → CONFIGURE servers (install nginx, Docker, UFW)
+Together   → full Infrastructure as Code!
+
+Day 21 - Fri May 16 2026 - Advanced Ansible + Mini Project Complete
